@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>王帅个人电子名片</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1677ff',
+            wechat: '#07C160',
+            alipay: '#1677FF',
+            phone: '#34C759'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #f5f7fa; }
+    .card-shadow { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+    .btn-active:active { transform: scale(0.97); opacity: 0.9; }
+    .qrcode-box { width: 140px; height: 140px; margin: 0 auto; }
+  </style>
+</head>
+<body class="min-h-screen flex justify-center py-8 px-4">
+<div class="w-full max-w-sm bg-white rounded-2xl card-shadow overflow-hidden">
+
+  <!-- 顶部渐变 -->
+  <div class="bg-gradient-to-r from-primary to-blue-400 h-28 relative">
+    <div class="absolute left-1/2 -translate-x-1/2 bottom-[-50px]">
+      <div class="w-[100px] h-[100px] rounded-full border-4 border-white bg-gray-100 overflow-hidden">
+        <img src="https://wangshuai.cn/wangshuaitx.jpg" alt="头像" class="w-full h-full object-cover">
+      </div>
+    </div>
+  </div>
+
+  <!-- 个人信息 -->
+  <div class="pt-14 pb-6 px-5 text-center">
+    <h2 class="text-[22px] font-bold text-gray-800">王帅</h2>
+    <p class="text-gray-500 mt-1">广州网约车 | 粤AD20297</p>
+    <div class="mt-3 text-sm text-gray-600">专业客运服务，欢迎联系咨询</div>
+  </div>
+
+  <!-- 一键联系 -->
+  <div class="px-5 pb-5 space-y-3">
+    <a href="tel:13800138000" class="btn-active flex items-center justify-between bg-phone text-white rounded-xl py-4 px-5">
+      <div class="flex items-center gap-3"><i class="fa fa-phone text-xl w-6"></i> 一键拨打电话</div>
+      <span>13800138000</span>
+    </a>
+
+    <div onclick="openWechat()" class="btn-active flex items-center justify-between bg-wechat text-white rounded-xl py-4 px-5 cursor-pointer">
+      <div class="flex items-center gap-3"><i class="fa fa-wechat text-xl w-6"></i> 微信加好友（跳转）</div>
+      <span>WeChat12366</span>
+    </div>
+
+    <div onclick="openAlipay()" class="btn-active flex items-center justify-between bg-alipay text-white rounded-xl py-4 px-5 cursor-pointer">
+      <div class="flex items-center gap-3"><i class="fa fa-alipay text-xl w-6"></i> 支付宝加好友</div>
+      <span>zhifubao@163.com</span>
+    </div>
+
+    <div class="grid grid-cols-2 gap-3 mt-1">
+      <button onclick="copyWechat()" class="border border-gray-200 py-3 rounded-lg text-sm hover:bg-gray-50">复制微信号</button>
+      <button onclick="copyAlipay()" class="border border-gray-200 py-3 rounded-lg text-sm hover:bg-gray-50">复制支付宝号</button>
+    </div>
+  </div>
+
+  <!-- ====================== 二维码区域（已加上） ====================== -->
+  <div class="px-5 pb-8 border-t border-gray-100 pt-5">
+    <div class="text-center mb-4 text-gray-700 font-medium">长按二维码添加好友</div>
+    <div class="grid grid-cols-2 gap-6">
+      <!-- 微信二维码 -->
+      <div class="text-center">
+        <div class="qrcode-box bg-gray-100 rounded-lg p-2">
+          <img src="https://wangshuai.cn/wechat.png" alt="微信二维码" class="w-full h-full rounded">
+        </div>
+        <p class="mt-2 text-sm text-gray-600">微信</p>
+      </div>
+      <!-- 支付宝二维码 -->
+      <div class="text-center">
+        <div class="qrcode-box bg-gray-100 rounded-lg p-2">
+          <img src="https://wangshuai.cn/alipay.jpg" alt="支付宝二维码" class="w-full h-full rounded">
+        </div>
+        <p class="mt-2 text-sm text-gray-600">支付宝</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center text-xs text-gray-400 pb-5">&copy;<script>document.write(new Date().getFullYear())</script>&nbsp;王帅个人电子名片</div>
+</div>
+
+<!-- 提示弹窗 -->
+<div id="toast" class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-black/75 text-white py-2 px-5 rounded-lg text-sm opacity-0 transition-opacity pointer-events-none z-50"></div>
+
+<script>
+// ====================== 在这里修改你的信息 ======================
+const phone     = "17503962297"          // 电话
+const wechatId  = "Wangshuai17503962297"          // 微信号
+const alipayId  = "ws@wangshuai.cn"     // 支付宝账号
+
+// 微信跳转
+function openWechat(){ location.href = `weixin://addfriend/${wechatId}` }
+// 支付宝跳转
+function openAlipay(){ location.href = `alipays://platformapi/startapp?appId=20000007&qrcode=${alipayId}` }
+// 复制
+function copyWechat(){ copy(wechatId,"微信号复制成功") }
+function copyAlipay(){ copy(alipayId,"支付宝账号复制成功") }
+
+function copy(text,tip){
+  navigator.clipboard.writeText(text).then(()=>showToast(tip)).catch(()=>{
+    let i=document.createElement('input');i.value=text;document.body.appendChild(i);i.select();document.execCommand('copy');document.body.removeChild(i);showToast(tip)
+  })
+}
+function showToast(m){
+  let t=document.getElementById('toast');t.innerText=m;t.style.opacity=1;setTimeout(()=>t.style.opacity=0,1500)
+}
+</script>
+</body>
+</html>
