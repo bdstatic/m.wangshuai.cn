@@ -54,7 +54,7 @@
     </a>
 
     <div onclick="openWechat()" class="btn-active flex items-center justify-between bg-wechat text-white rounded-xl py-4 px-5 cursor-pointer">
-      <div class="flex items-center gap-3"><i class="fa fa-wechat text-xl w-6"></i> 微信加好友（跳转）</div>
+      <div class="flex items-center gap-3"><i class="fa fa-wechat text-xl w-6"></i> 微信加好友</div>
       <span>Wangshuai17503962297</span>
     </div>
 
@@ -103,9 +103,9 @@ const wechatId  = "Wangshuai17503962297"          // 微信号
 const alipayId  = "ws@wangshuai.cn"     // 支付宝账号
 
 // 微信跳转
-function openWechat(){ location.href = `weixin://contacts/profile/{wechatId}` }
+function openWechat(){ location.href = `weixin://` }
 // 支付宝跳转
-function openAlipay(){ location.href = `alipays://platformapi/startapp?appId=20000007&qrcode=${alipayId}` }
+function openAlipay(){ location.href = `alipays://` }
 // 复制
 function copyWechat(){ copy(wechatId,"微信号复制成功") }
 function copyAlipay(){ copy(alipayId,"支付宝账号复制成功") }
