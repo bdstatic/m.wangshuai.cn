@@ -103,7 +103,7 @@ const wechatId  = "Wangshuai17503962297"          // 微信号
 const alipayId  = "ws@wangshuai.cn"     // 支付宝账号
 
 // 微信跳转
-function openWechat(){ location.href = `weixin://addfriend/${wechatId}` }
+function openWechat(){ location.href = `weixin://contacts/profile/{wechatId}` }
 // 支付宝跳转
 function openAlipay(){ location.href = `alipays://platformapi/startapp?appId=20000007&qrcode=${alipayId}` }
 // 复制
