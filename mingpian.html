@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="王帅 - 广州专业预约出行服务，安全准时，接送机、商务出行、长途包车、日常代步">
+    <title>王帅 · 广州专业预约出行服务</title>
+    <!-- SEO关键词 -->
+    <meta name="keywords" content="广州网约车王帅,王帅网约车,广州全职网约车司机,河南驻马店广州网约车,广州天河网约车,白云区网约车接送,广州机场包车,广州南站接送,增城靠谱网约车,广州长途包车">
+    <!-- SEO描述 -->
+    <meta name="description" content="王帅，河南驻马店人，广州全职网约车司机，熟悉广州全城路况，提供日常通勤、白云机场、广州南站接送、长途包车服务，车况干净驾驶平稳，用车可直接电话联系。">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        :root {
+            --primary: #187878;
+            --primary-light: #e8f4f4;
+            --call-orange: #ff6622;
+            --wechat-green: #22b559;
+            --text-dark: #222;
+            --text-body: #555;
+            --text-muted: #888;
+            --bg-page: #f0f2f5;
+            --bg-card: #ffffff;
+            --bg-soft: #f7f8fa;
+            --radius-card: 18px;
+            --radius-btn: 14px;
+            --radius-tag: 22px;
+        }
+
+        html, body {
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-dark);
+            line-height: 1.5;
+            min-height: 100vh;
+        }
+
+        body {
+            padding: 16px 12px 32px;
+        }
+
+        .card {
+            max-width: 420px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border-radius: var(--radius-card);
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        /* ===== 顶部头部区域 ===== */
+        .header {
+            background: linear-gradient(160deg, #1a8a8a 0%, #146b6b 100%);
+            color: #fff;
+            text-align: center;
+            padding: 40px 20px 32px;
+            position: relative;
+        }
+
+        .header::after {
+            content: "";
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 24px;
+            background: var(--bg-card);
+            border-radius: 24px 24px 0 0;
+        }
+
+        .avatar-wrap {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 16px;
+            z-index: 1;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.95);
+            object-fit: cover;
+            display: block;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .name {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .sub-title {
+            font-size: 16px;
+            opacity: 0.92;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .location {
+            font-size: 14px;
+            opacity: 0.85;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .location svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        /* ===== 简介 ===== */
+        .desc {
+            padding: 24px 28px 20px;
+            text-align: center;
+            font-size: 15px;
+            color: var(--text-body);
+            line-height: 1.75;
+        }
+
+        /* ===== 按钮区域 ===== */
+        .btn-group {
+            padding: 0 24px;
+        }
+
+        .btn {
+            width: 100%;
+            height: 56px;
+            border-radius: var(--radius-btn);
+            border: none;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            text-decoration: none;
+            margin-bottom: 12px;
+            min-height: 44px;
+        }
+
+        .btn:active {
+            transform: scale(0.97);
+        }
+
+        .btn svg {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+
+        .btn-call {
+            background: linear-gradient(135deg, #ff7a33 0%, #ff5500 100%);
+            box-shadow: 0 4px 12px rgba(255, 102, 34, 0.3);
+        }
+
+        .btn-wechat {
+            background: linear-gradient(135deg, #2dc96a 0%, #1aa84a 100%);
+            box-shadow: 0 4px 12px rgba(34, 181, 89, 0.3);
+        }
+
+        /* ===== 联系方式文字 ===== */
+        .contact-text {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 13px;
+            padding: 8px 24px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .contact-text .divider {
+            width: 1px;
+            height: 12px;
+            background: #ddd;
+        }
+
+        /* ===== 业务标签 ===== */
+        .section-label {
+            font-size: 13px;
+            color: var(--text-muted);
+            padding: 0 28px 10px;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .tags-wrap {
+            display: flex;
+            gap: 10px;
+            padding: 0 24px 24px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 7px 16px;
+            border-radius: var(--radius-tag);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* ===== 服务优势四格 ===== */
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            padding: 0 24px 28px;
+        }
+
+        .feature-item {
+            background: var(--bg-soft);
+            padding: 16px 14px;
+            border-radius: 12px;
+            border: 1px solid #f0f0f0;
+        }
+
+        .feature-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .feature-icon svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--primary);
+        }
+
+        .feature-title {
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 4px;
+            color: var(--text-dark);
+        }
+
+        .feature-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* ===== 底部提示 ===== */
+        .footer-note {
+            text-align: center;
+            color: #bbb;
+            font-size: 11px;
+            padding: 0 24px 20px;
+            line-height: 1.6;
+        }
+
+        /* ===== Toast 提示 ===== */
+        .toast {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 14px 24px;
+            border-radius: 10px;
+            font-size: 14px;
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease, transform 0.25s ease;
+            max-width: 80%;
+            text-align: center;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        /* ===== 响应式 ===== */
+        @media (max-width: 360px) {
+            .name { font-size: 28px; }
+            .avatar, .avatar-wrap { width: 100px; height: 100px; }
+            .btn { font-size: 16px; height: 52px; }
+            .features { gap: 10px; }
+            .feature-item { padding: 14px 12px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <!-- ===== 顶部头部 ===== -->
+        <div class="header">
+            <div class="avatar-wrap">
+                <img class="avatar" src="https://aka.doubaocdn.com/s/vQUntjIiKA" alt="王帅头像">
+            </div>
+            <div class="name">王 帅</div>
+            <div class="sub-title">专业预约出行服务</div>
+            <div class="location">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                广州
+            </div>
+        </div>
+
+        <!-- ===== 简介 ===== -->
+        <div class="desc">
+            多年从业经验，熟悉广州及珠三角各条路线。始终坚持以安全、准时、热情为服务准则，为每一位乘客提供舒适愉快的出行体验。
+        </div>
+
+        <!-- ===== 功能按钮 ===== -->
+        <div class="btn-group">
+            <a href="tel:+8617503962297" class="btn btn-call">
+                <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                一键拨打
+            </a>
+            <button class="btn btn-wechat" onclick="copyWechat()">
+                <svg viewBox="0 0 24 24"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18zm5.34 2.867c-1.797-.052-3.746.512-5.28 1.786-1.72 1.428-2.687 3.72-1.78 6.22.942 2.453 3.666 4.229 6.884 4.229.826 0 1.622-.12 2.361-.336a.722.722 0 0 1 .598.082l1.584.926a.272.272 0 0 0 .14.047c.134 0 .24-.111.24-.247 0-.06-.023-.12-.038-.177l-.327-1.233a.582.582 0 0 1-.023-.156.49.49 0 0 1 .201-.398C23.024 18.48 24 16.82 24 14.98c0-3.21-2.931-5.837-6.656-6.088V8.89c-.135-.01-.27-.027-.407-.03zm-2.53 3.274c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.97-.982zm4.844 0c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.969-.982z"/></svg>
+                复制微信号
+            </button>
+        </div>
+
+        <!-- ===== 联系方式 ===== -->
+        <div class="contact-text">
+            <span>+8617503962297</span>
+            <span class="divider"></span>
+            <span>微信：691020021</span>
+        </div>
+
+        <!-- ===== 业务标签 ===== -->
+        <div class="section-label">服务范围</div>
+        <div class="tags-wrap">
+            <span class="tag">接送机</span>
+            <span class="tag">商务出行</span>
+            <span class="tag">长途包车</span>
+            <span class="tag">日常代步</span>
+        </div>
+
+        <!-- ===== 服务优势 ===== -->
+        <div class="section-label">服务保障</div>
+        <div class="features">
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                </div>
+                <div class="feature-title">安全驾驶</div>
+                <div class="feature-desc">多年驾龄 安全无忧</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                </div>
+                <div class="feature-title">准时到达</div>
+                <div class="feature-desc">守时守信 绝不迟到</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>
+                </div>
+                <div class="feature-title">车况优良</div>
+                <div class="feature-desc">定期保养 整洁舒适</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                </div>
+                <div class="feature-title">服务热情</div>
+                <div class="feature-desc">用心服务 宾至如归</div>
+            </div>
+        </div>
+
+        <!-- ===== 底部提示 ===== -->
+        <div class="footer-note">
+            提前预约，出行更安心<br>
+            广州及珠三角地区均可服务
+        </div>
+    </div>
+
+    <!-- ===== Toast 提示 ===== -->
+    <div class="toast" id="toast"></div>
+
+    <script>
+        // 复制微信号
+        function copyWechat() {
+            var wechat = "691020021";
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(wechat).then(function() {
+                    showToast("微信号复制成功，去微信添加好友吧");
+                }).catch(function() {
+                    fallbackCopy(wechat);
+                });
+            } else {
+                fallbackCopy(wechat);
+            }
+        }
+
+        // 兼容旧浏览器的复制方式
+        function fallbackCopy(text) {
+            var textarea = document.createElement("textarea");
+            textarea.value = text;
+            textarea.style.position = "fixed";
+            textarea.style.opacity = "0";
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand("copy");
+                showToast("微信号复制成功，去微信添加好友吧");
+            } catch (e) {
+                showToast("复制失败，请手动复制：" + text);
+            }
+            document.body.removeChild(textarea);
+        }
+
+        // 显示 Toast 提示
+        function showToast(message) {
+            var toast = document.getElementById("toast");
+            toast.textContent = message;
+            toast.classList.add("show");
+            setTimeout(function() {
+                toast.classList.remove("show");
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
